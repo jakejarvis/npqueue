@@ -25,6 +25,8 @@ function updateTable(data) {
   queue.innerText = `In Queue: ${data.currentQueue}`;
 
   table = document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0];
+  table.innerHTML = "";
+
 
   data.players = data.players.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
 
