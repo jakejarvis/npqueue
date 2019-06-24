@@ -13,8 +13,8 @@ async function fetchData() {
 function updateData() {
   fetchData().then(data => updateTable(data)).catch(data => console.log(data));
 
-  // Re-fetch data every 15 seconds
-  setTimeout(updateData, 15000);
+  // Re-fetch data every 1 minute
+  setTimeout(updateData, 60000);
 }
 
 function updateTable(data) {
