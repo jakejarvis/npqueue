@@ -168,7 +168,7 @@ func main() {
 	addr := ":" + os.Getenv("PORT")
   
 	http.HandleFunc("/api/list", List)
-	http.Handle("/", http.FileServer(http.Dir("./static")))
+	http.Handle("/", http.FileServer(http.Dir("./public")))
 
 	log.Printf("Listening on %s...\n", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
