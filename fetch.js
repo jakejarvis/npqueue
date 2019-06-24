@@ -19,7 +19,7 @@ function updateData() {
 
 function updateTable(data) {
   active = document.getElementById("active");
-  active.innerText = `Active Players: ${data.currentPlayers} / 32`;
+  active.innerText = `Active Players: ${data.currentPlayers} / 60`;
 
   queue = document.getElementById("queue");
   queue.innerText = `In Queue: ${data.currentQueue}`;
