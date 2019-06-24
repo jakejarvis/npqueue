@@ -149,7 +149,7 @@ func getPlayerNoPixelInformation(id string) (p NoPixelPlayer) {
 	return
 }
 
-// List handler for Heroku /api/list route
+// List handler for now.sh /api/list route
 func List(w http.ResponseWriter, r *http.Request) {
 	err := loadPlayersJSON()
 	if err != nil {
@@ -168,6 +168,8 @@ func main() {
 	addr := ":" + os.Getenv("PORT")
   
 	http.HandleFunc("/api/list", List)
+	http.Handle("/", http.FileServer(http.Dir("./static")))
+
 	log.Printf("Listening on %s...\n", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 	  panic(err)

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", updateData, false);
 
 async function fetchData() {
-  let request = await fetch("https://hidden-depths-42970.herokuapp.com/api/list");
+  let request = await fetch("/api/list");
   if(request.status == 200) {
     console.log("New JSON successfully fetched!");
     let data = await request.json();
