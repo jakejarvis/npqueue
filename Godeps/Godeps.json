@@ -1,5 +1,5 @@
 {
-	"ImportPath": "api",
+	"ImportPath": "npqueue",
 	"GoVersion": "go1.12",
 	"GodepVersion": "v80",
 	"Packages": [
