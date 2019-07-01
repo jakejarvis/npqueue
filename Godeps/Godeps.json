@@ -5,5 +5,16 @@
 	"Packages": [
 		"./..."
 	],
-	"Deps": []
+	"Deps": [
+		{
+			"ImportPath": "github.com/heroku/x/hmetrics",
+			"Comment": "v0.0.1-14-g6da54e7",
+			"Rev": "6da54e7f9d01cfd8f5f316cb4c6ae5af36db5adc"
+		},
+		{
+			"ImportPath": "github.com/heroku/x/hmetrics/onload",
+			"Comment": "v0.0.1-14-g6da54e7",
+			"Rev": "6da54e7f9d01cfd8f5f316cb4c6ae5af36db5adc"
+		}
+	]
 }

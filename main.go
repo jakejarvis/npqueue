@@ -12,6 +12,8 @@ import (
   "strconv"
   "strings"
   "time"
+
+	_ "github.com/heroku/x/hmetrics/onload"
 )
 
 type ServerDetailsStruct struct {
