@@ -81,9 +81,10 @@ func getPlayerList() (err error) {
 func getServerQueue() (err error) {
   serverData := make([]byte, 256)
   serverConnection, err := net.Dial("udp", ServerAddress)
-  defer serverConnection.Close()
   if err != nil {
     return err
+  } else {
+    defer serverConnection.Close()
   }
 
   // UDP voodoo to get server info -- https://github.com/LiquidObsidian/fivereborn-query/blob/master/index.js#L54
@@ -167,10 +168,33 @@ func getPlayerNoPixelInformation(id string) (p NoPixelPlayer) {
 
 // List handler for /api/list route
 func ListHandler(c *gin.Context) {
-  loadPlayersJSON()
-  getPlayerList()
-  getServerQueue()
-  parsePlayers()
+  // Load players JSON
+  err := loadPlayersJSON()
+  if err != nil {
+    log.Fatalf("Failed to load players JSON:  %v", err)
+    return
+  }
+
+  // Get player list
+  err = getPlayerList()
+  if err != nil {
+    log.Fatalf("Failed to get player list:  %v", err)
+    return
+  }
+
+  // Get server queue count
+  err = getServerQueue()
+  if err != nil {
+    log.Fatalf("Failed to get server queue count:  %v", err)
+    return
+  }
+
+  // Parse players JSON
+  err = parsePlayers()
+  if err != nil {
+    log.Fatalf("Failed to parse players JSON:  %v", err)
+    return
+  }
 
   c.Header("Content-Type", "application/json")
   c.Header("Access-Control-Allow-Origin", "*")
@@ -198,6 +222,10 @@ func main() {
   // List handler for /api/list
   api.GET("/list", ListHandler)
 
-  router.Run(port)
-  log.Printf("Listening on %s...\n", port)
+  // Run the Gin router
+  if err := router.Run(port); err != nil {
+    log.Fatalf("Gin fatal error: %v", err)
+  } else {
+    log.Printf("Listening on %s...\n", port)
+  }
 }
