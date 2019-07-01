@@ -13,7 +13,9 @@ import (
   "strings"
   "time"
 
-	_ "github.com/heroku/x/hmetrics/onload"
+  "github.com/gin-gonic/contrib/static"
+  "github.com/gin-gonic/gin"
+  _ "github.com/heroku/x/hmetrics/onload"
 )
 
 type ServerDetailsStruct struct {
@@ -163,32 +165,39 @@ func getPlayerNoPixelInformation(id string) (p NoPixelPlayer) {
   return
 }
 
-// List handler for now.sh /api/list route
-func List(w http.ResponseWriter, r *http.Request) {
-  err := loadPlayersJSON()
-  if err != nil {
-    fmt.Fprintf(w, "failed to load JSON file %v", err)
-    return
-  }
-
+// List handler for /api/list route
+func ListHandler(c *gin.Context) {
+  loadPlayersJSON()
   getPlayerList()
   getServerQueue()
   parsePlayers()
 
-  w.Header().Set("Content-Type", "application/json")
-  w.Header().Set("Access-Control-Allow-Origin", "*")
+  c.Header("Content-Type", "application/json")
+  c.Header("Access-Control-Allow-Origin", "*")
 
-  json.NewEncoder(w).Encode(ServerDetails)
+  c.JSON(http.StatusOK, ServerDetails)
 }
 
 func main() {
-  addr := ":" + os.Getenv("PORT")
-  
-  http.HandleFunc("/api/list", List)
-  http.Handle("/", http.FileServer(http.Dir("./public")))
+  port := ":" + os.Getenv("PORT")
+  router := gin.Default()
 
-  log.Printf("Listening on %s...\n", addr)
-  if err := http.ListenAndServe(addr, nil); err != nil {
-    panic(err)
+  // Serve frontend static files
+  router.Use(static.Serve("/", static.LocalFile("./public", true)))
+
+  // Setup route group for the API
+  api := router.Group("/api")
+  {
+    api.GET("/", func(c *gin.Context) {
+      c.JSON(http.StatusOK, gin.H {
+        "message": "Nothing to see here.",
+      })
+    })
   }
+
+  // List handler for /api/list
+  api.GET("/list", ListHandler)
+
+  router.Run(port)
+  log.Printf("Listening on %s...\n", port)
 }
