@@ -14,6 +14,7 @@ import (
   "time"
 
   "github.com/gin-gonic/contrib/static"
+  "github.com/gin-contrib/secure"
   "github.com/gin-gonic/gin"
   _ "github.com/heroku/x/hmetrics/onload"
 )
@@ -205,6 +206,17 @@ func ListHandler(c *gin.Context) {
 func main() {
   port := ":" + os.Getenv("PORT")
   router := gin.Default()
+
+  router.Use(secure.New(secure.Config{
+    SSLRedirect:           true,
+    SSLHost:               "np.pogge.rs",
+    STSSeconds:            315360000,
+    STSIncludeSubdomains:  false,
+    FrameDeny:             true,
+    ContentTypeNosniff:    true,
+    BrowserXssFilter:      true,
+    SSLProxyHeaders:       map[string]string{"X-Forwarded-Proto": "https"},
+  }))
 
   // Serve frontend static files
   router.Use(static.Serve("/", static.LocalFile("./public", true)))

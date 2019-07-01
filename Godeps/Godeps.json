@@ -7,6 +7,10 @@
 	],
 	"Deps": [
 		{
+			"ImportPath": "github.com/gin-contrib/secure",
+			"Rev": "312887ea6e1f6d9b6dcb5fdd548f8c8dfb62eaca"
+		},
+		{
 			"ImportPath": "github.com/gin-contrib/sse",
 			"Comment": "v0.1.0",
 			"Rev": "54d8467d122d380a14768b6b4e5cd7ca4755938f"
