@@ -10,7 +10,7 @@ require (
 	github.com/golang/protobuf v1.3.1
 	github.com/heroku/x v0.0.0-20190521194152-6da54e7f9d01
 	github.com/json-iterator/go v1.1.7
-	github.com/mattn/go-isatty v0.0.8
+	github.com/mattn/go-isatty v0.0.9
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/modern-go/reflect2 v1.0.1
 	github.com/ugorji/go v1.1.7
