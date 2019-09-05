@@ -31,5 +31,3 @@ jobs:
       uses: actions-contrib/golangci-lint@master
       with:
         args: run
-      env: 
-        GO111MODULE: on
