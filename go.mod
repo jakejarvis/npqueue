@@ -12,5 +12,5 @@ require (
 	github.com/json-iterator/go v1.1.7 // indirect
 	github.com/mattn/go-isatty v0.0.9 // indirect
 	github.com/ugorji/go v1.1.7 // indirect
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859 // indirect
+	golang.org/x/net v0.0.0-20190909003024-a7b16738d86b // indirect
 )
