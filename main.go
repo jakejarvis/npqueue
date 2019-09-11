@@ -144,7 +144,7 @@ func parsePlayers() (err error) {
 }
 
 func loadPlayersJSON() (err error) {
-  jsonFile, err := jsonGet.Get("https://github.com/jakejarvis/npqueue/raw/master/directory.json")
+  jsonFile, err := jsonGet.Get("https://raw.githubusercontent.com/jakejarvis/npqueue/master/directory.json")
   if err != nil {
     return
   }
