@@ -1,6 +1,6 @@
 # [NoPixel Queue List](https://np.pogge.rs/) 👾
 
-[![Build Status](https://travis-ci.org/jakejarvis/npqueue.svg?branch=master)](https://travis-ci.org/jakejarvis/npqueue)
+![](https://github.com/jakejarvis/npqueue/workflows/Deploy/badge.svg)
 
 Active and queued player list for [NoPixel GTA5 RP](https://www.nopixel.net/) server. Based on [@shivammeh/nplists3](https://github.com/shivammeh/nplists3).
 

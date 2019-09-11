@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Lint
+      uses: actions-contrib/golangci-lint@master
+      with:
+        args: run
+    - name: Setup Go 1.13
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.13
+      id: go
+    - name: Get dependencies
+      run: go mod download
+    - name: Build
+      run: go build -v .
+    - name: Heroku Login
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:login
+    - name: Heroku Push
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:push -a npqueue web
+    - name: Heroku Release
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:release -a npqueue web
