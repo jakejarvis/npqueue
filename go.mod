@@ -3,7 +3,7 @@ module github.com/jakejarvis/npqueue
 go 1.13
 
 require (
-	github.com/gin-contrib/secure v0.0.0-20190913150500-0a1d39a681e3
+	github.com/gin-contrib/secure v0.0.0-20190528141218-312887ea6e1f
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/contrib v0.0.0-20190526021735-7fb7810ed2a0
 	github.com/gin-gonic/gin v1.4.0
