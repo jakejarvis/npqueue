@@ -4,5 +4,6 @@
   ],
   "baseBranches": ["master"],
   "assignees": ["jakejarvis"],
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "masterIssue": true
 }
