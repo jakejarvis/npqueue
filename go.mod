@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/gin-contrib/secure v0.0.0-20190913150500-0a1d39a681e3
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/contrib v0.0.0-20190526021735-7fb7810ed2a0
+	github.com/gin-gonic/contrib v0.0.0-20190923054218-35076c1b2bea
 	github.com/gin-gonic/gin v1.4.0
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/heroku/x v0.0.9

@@ -27,6 +27,8 @@ github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/contrib v0.0.0-20190526021735-7fb7810ed2a0 h1:R0oj52DmXWiPxZEedx/Uxxbvs6yB0l8hLgrubGpKsq4=
 github.com/gin-gonic/contrib v0.0.0-20190526021735-7fb7810ed2a0/go.mod h1:iqneQ2Df3omzIVTkIfn7c1acsVnMGiSLn4XF5Blh3Yg=
+github.com/gin-gonic/contrib v0.0.0-20190923054218-35076c1b2bea h1:tPQfr1S0mubDv/jvdbS1xbKOJzDgvIHi7db/MYr4EKg=
+github.com/gin-gonic/contrib v0.0.0-20190923054218-35076c1b2bea/go.mod h1:iqneQ2Df3omzIVTkIfn7c1acsVnMGiSLn4XF5Blh3Yg=
 github.com/gin-gonic/gin v1.4.0 h1:3tMoCCfM7ppqsR0ptz/wi1impNpT7/9wQtMZ8lr1mCQ=
 github.com/gin-gonic/gin v1.4.0/go.mod h1:OW2EZn3DO8Ln9oIKOvM++LBO+5UPHJJDH72/q/3rZdM=
 github.com/go-chi/chi v3.3.2+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
